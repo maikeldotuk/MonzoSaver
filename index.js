@@ -99,7 +99,7 @@ class App {
 const app = new App()
 
 program
-    .option('-r, --run', 'run autosaver')
+    .option('-r, --run', 'run autosaver') // TODO: Add more commands once Monzo decides to let me automate payments too
     .parse(process.argv);
 
 if (program.run) app.depositOrWithdraw()
