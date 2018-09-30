@@ -21,15 +21,14 @@ This was born to make smarter the IFTTT applet "pay me a daily allowance" which 
 
 
 ## Requirements
-* You ave node and npm installed. 
+* You have node and npm installed. 
 * The computer you're using is connected to the internet by the time the utility runs.
-* You know your Monzo API access codes (https://developer.monzo.com).
+* You know your Monzo API access codes (https://developers.monzo.com/).
 * Basic knowledge of what a cron job is. 
 
-## Note
+## How to run it
 
-In order for it to run as you intend it to do you'll need a scheduler, either cron, supervisor or whichever scheduler flavour you prefer. 
-
+In order for it to run whenever you want you'll need a scheduler. As cron is fairly simple below there are details of using it with it 
 
 1. Clone it to a computer or server with permanent access to internet. 
 2. Run **npm install**
