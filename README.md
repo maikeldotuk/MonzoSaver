@@ -3,7 +3,7 @@
 Monzo saver is a little node application to send yourself an allowance from a pot every morning and
 the next day reset your balance from that same pot so you **always** have the exact same daily allowance. 
 
-Depending of you being above 10 or below 10 it will automatically detect your balannce and either deposit or withdraw as required.
+Depending on your account being above or below yout allowance it will either deposit or withdraw as required once per day. 
 
 This was born to make smarter the IFTTT applet "pay me a daily allowance" which doesn't allow for this.  
 
@@ -23,7 +23,8 @@ This was born to make smarter the IFTTT applet "pay me a daily allowance" which 
 ## Requirements
 * You ave node and npm installed. 
 * The computer you're using is connected to the internet by the time the utility runs.
-* You know your Monzo API access codes (https://developer.monzo.com)
+* You know your Monzo API access codes (https://developer.monzo.com).
+* Basic knowledge of what a cron job is. 
 
 ## Note
 
