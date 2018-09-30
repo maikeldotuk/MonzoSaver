@@ -4,7 +4,7 @@ const rp = require('request-promise')
 const program = require('commander')
 
 const accessToken = process.env.ACCESS_TOKEN
-const accountID = process.env.ACCOUNT_ID
+const accountID = process.env.ACCOUNT_ID // TODO: Not sure if this has to do with renewing the token.
 const dailyAllowancePot = process.env.pot
 const allowance = Number(process.env.ALLOWANCE) * 100
 const currentAccountID = process.env.CURRENT_ACCOUNT_ID
@@ -27,14 +27,14 @@ class App {
         let balance = await this.getBalance()
         let niceBalance = 'You have not spent a penny'
         if (balance < 1000) {
-            await this.withdraw(1000 - balance)
-            niceBalance = '£' + ((1000 - balance) / 100).toFixed(2)
+            await this.withdraw(allowance - balance)
+            niceBalance = '£' + ((allowance - balance) / 100).toFixed(2)
             await this.feed('You have overspent: ' + niceBalance)
-        } else if (balance === 1000) {
+        } else if (balance === allowance) {
             await this.feed(niceBalance)
         } else {
-            await this.deposit(balance - 1000)
-            niceBalance = '£' + ((balance - 1000) / 100).toFixed(2)
+            await this.deposit(balance - allowance)
+            niceBalance = '£' + ((balance - allowance) / 100).toFixed(2)
             await this.feed('You have saved: ' + niceBalance)
         }
         console.log(niceBalance)
@@ -76,12 +76,12 @@ class App {
     }
 
     async feed(message) {
-        let response = await rp.post({
+        await rp.post({
             uri: monzoAPI + '/feed',
             form: {
                 account_id: currentAccountID,
                 type: "basic",
-                "params[title]": "AutoSave",
+                "params[title]": "Monzo Auto Saver",
                 "params[image_url]": "https://www.maikel.uk/images/dda140675725d995726117c249804e365bf90fb9.png",
                 "params[background_color]": "#FFFFFF",
                 "params[body_color]": "#000000",
