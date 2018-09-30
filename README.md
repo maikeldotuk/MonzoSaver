@@ -6,6 +6,7 @@ the next day reset your balance from that same pot so you **always** have the ex
 Depending of you being above 10 or below 10 it will automatically detect your balannce and either deposit or withdraw as required.
 
 This was born to make smarter the IFTTT applet "pay me a daily allowance" which doesn't allow for this.  
+
 ###Example 1 
 
 1. Allowance = 10 GBP
