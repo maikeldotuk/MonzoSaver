@@ -1,22 +1,22 @@
 #!/usr/bin/env node
-
-
 require('dotenv').config()
 const rp = require('request-promise')
+const program = require('commander')
 
 const accessToken = process.env.ACCESS_TOKEN
 const accountID = process.env.ACCOUNT_ID
-const dailyAllowancePot = 'pot_00009ZDK4C7epnzMPsk4sD'
+const dailyAllowancePot = process.env.pot
+const allowance = Number(process.env.ALLOWANCE) * 100
+const currentAccountID = process.env.CURRENT_ACCOUNT_ID
 const headers = {
     Authorization: 'Bearer ' + accessToken
 }
-const currentAccountID = 'acc_00009Qi4UwzXCv7WB4723N'
-const program = require('commander')
+const monzoAPI = 'https://api.monzo.com'
 
 class App {
     async getBalance() {
         let response = await rp({
-            uri: 'https://api.monzo.com/balance?account_id=' + currentAccountID,
+            uri: monzoAPI + '/balance?account_id=' + currentAccountID,
             headers: headers,
             json: true
         })
@@ -43,7 +43,7 @@ class App {
 
     async deposit(amount) {
         let response = await rp.put({
-            uri: 'https://api.monzo.com/pots/' + dailyAllowancePot + '/deposit',
+            uri: monzoAPI + '/pots/' + dailyAllowancePot + '/deposit',
             method: 'PUT',
             form: {
                 source_account_id: currentAccountID,
@@ -60,7 +60,7 @@ class App {
 
     async withdraw(amount) {
         let response = await rp.put({
-            uri: 'https://api.monzo.com/pots/' + dailyAllowancePot + '/withdraw',
+            uri: monzoAPI + '/pots/' + dailyAllowancePot + '/withdraw',
             method: 'PUT',
             form: {
                 destination_account_id: currentAccountID,
@@ -77,7 +77,7 @@ class App {
 
     async feed(message) {
         let response = await rp.post({
-            uri: 'https://api.monzo.com/feed',
+            uri: monzoAPI + '/feed',
             form: {
                 account_id: currentAccountID,
                 type: "basic",

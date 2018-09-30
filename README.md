@@ -34,3 +34,5 @@ In order for it to run as you intend it to do you'll need a scheduler, either cr
 4. Create your .env file as in the example
 5. Run **crontab -e** to edit your crontab scheduler. 
 5. Add a cronjob "01 6    * * *   maikel  monzo -r"
+
+Ensure your server is running with your timezone by running **date** on your terminal. 
