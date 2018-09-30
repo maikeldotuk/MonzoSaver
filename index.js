@@ -5,7 +5,7 @@ const program = require('commander')
 
 const accessToken = process.env.ACCESS_TOKEN
 const accountID = process.env.ACCOUNT_ID // TODO: Not sure if this has to do with renewing the token.
-const dailyAllowancePot = process.env.pot
+const dailyAllowancePot = process.env.POT
 const allowance = Number(process.env.ALLOWANCE) * 100
 const currentAccountID = process.env.CURRENT_ACCOUNT_ID
 const headers = {
