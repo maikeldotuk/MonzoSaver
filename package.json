@@ -1,0 +1,10 @@
+{
+  "name": "MonzoSaver",
+  "version": "1.0.0",
+  "dependencies": {
+    "commander": "^2.18.0"
+  },
+  "bin": {
+    "monzo": "index.js"
+  }
+}
