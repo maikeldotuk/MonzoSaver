@@ -99,8 +99,12 @@ class App {
 const app = new App()
 
 program
-    .version('0.1.0')
-    .option('-r, --run', 'Run autosaver')
+    .option('-r, --run', 'run autosaver')
     .parse(process.argv);
 
 if (program.run) app.depositOrWithdraw()
+
+if (!process.argv.slice(2).length) {
+    program.outputHelp();
+}
+

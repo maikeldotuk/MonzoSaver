@@ -1,6 +1,9 @@
 {
   "name": "MonzoSaver",
   "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "commander": "^2.18.0"
   },
