@@ -7,7 +7,7 @@ Depending of you being above 10 or below 10 it will automatically detect your ba
 
 This was born to make smarter the IFTTT applet "pay me a daily allowance" which doesn't allow for this.  
 
-###Example 1 
+### Example 1 
 
 1. Allowance = 10 GBP
 2. You spend 6 pounds, your account has 4 pounds left
